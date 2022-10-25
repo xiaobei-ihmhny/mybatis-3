@@ -60,6 +60,7 @@ public class BlockingCache implements Cache {
     try {
       delegate.putObject(key, value);
     } finally {
+      // 首次put时 locks 中并没有当前对象，此时不是会直接报错吗？
       releaseLock(key);
     }
   }

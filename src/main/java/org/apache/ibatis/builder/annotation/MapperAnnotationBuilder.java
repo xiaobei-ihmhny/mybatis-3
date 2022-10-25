@@ -124,6 +124,8 @@ public class MapperAnnotationBuilder {
         if (!canHaveStatement(method)) {
           continue;
         }
+        // 这里为什么要单独处理 Select.class、SelectProvider.class、ResultMap.class？
+        // FIXME 因为要处理 ResultMap 数据
         if (getAnnotationWrapper(method, false, Select.class, SelectProvider.class).isPresent()
             && method.getAnnotation(ResultMap.class) == null) {
           parseResultMap(method);
