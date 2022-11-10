@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 指定属性配置文件的路径 -->
+    <properties resource="META-INF/jdbc.properties"/>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="defaultFetchSize" value="2"/>
+        <setting name="logPrefix" value="guoguo=====>"/>
+        <setting name="logImpl" value="SLF4J"/>
+    </settings>
+
+    <environments default="dev">
+        <environment id="dev">
+            <!--  -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper class="com.xiaobei.mybatis.demo.dao.UserMapper"/>
+    </mappers>
+
+
+</configuration>
