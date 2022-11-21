@@ -23,6 +23,16 @@ public class User implements Serializable {
     @Column("birth_place")
     private String birthPlace;
 
+    private String bAccount;
+
+    public String getbAccount() {
+        return bAccount;
+    }
+
+    public void setbAccount(String bAccount) {
+        this.bAccount = bAccount;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -63,5 +73,10 @@ public class User implements Serializable {
                 ", age='" + age + '\'' +
                 ", birthPlace='" + birthPlace + '\'' +
                 '}';
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return this;
     }
 }
